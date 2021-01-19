@@ -22,13 +22,13 @@ admin.initializeApp({
 const db = admin.firestore();
 let bucket = admin.storage().bucket();
 
-//endpoint - posts
+//endpoint - get posts
 app.get("/posts", (request, response) => {
-  response.set("Access-Control-Allow-Origin", "*");
+  response.set("Access-Control-Allow-Origin", "*");  // preventing CORS warnning
 
   let posts = [];
   db.collection("posts")
-    .orderBy("date", "desc") // for showing latest posts first
+    .orderBy("date", "desc") // sorting for showing latest posts first
     .get()
     .then(snapshot => {
       snapshot.forEach(doc => posts.push(doc.data()));
@@ -36,9 +36,9 @@ app.get("/posts", (request, response) => {
     });
 });
 
-//endpoint - creat post
+//endpoint - create a post
 app.post("/createPost", (request, response) => {
-  response.set("Access-Control-Allow-Origin", "*");
+  response.set("Access-Control-Allow-Origin", "*"); // preventing CORS warnning
 
   let uuid = UUID()
 

@@ -255,7 +255,7 @@ export default {
     this.initCamera();
     setTimeout(() => {
       this.getLocation();
-    },2000);
+    },4000);
   },
   beforeDestroy() {
     if (this.hasCameraSupport) this.disableCamera();
