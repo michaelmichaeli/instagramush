@@ -234,7 +234,7 @@ export default {
       this.$axios
         .post(`${process.env.API}/createPost`, formData)
         .then(response => {
-          console.log("response", response);
+          // console.log("response", response);
           this.$router.push("/");
           this.$q.notify({
             message: "Post created!",
